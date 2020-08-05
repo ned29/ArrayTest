@@ -1,11 +1,16 @@
 package com.example.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.List;
 
 public class WriteFile {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(WriteFile.class);
 
 	private WriteFile() {
 	}
@@ -19,7 +24,7 @@ public class WriteFile {
 			});
 			writer.write(sb.toString());
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			LOGGER.error(e.getMessage());
 		}
 	}
 }

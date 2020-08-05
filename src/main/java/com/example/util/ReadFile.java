@@ -1,5 +1,8 @@
 package com.example.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,6 +13,7 @@ import java.util.stream.Collectors;
 
 public class ReadFile {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(ReadFile.class);
 	private static final String COMA = ",";
 
 	private ReadFile() {
@@ -24,7 +28,7 @@ public class ReadFile {
 			}
 			return Arrays.stream(numbers).map(Integer::valueOf).collect(Collectors.toList());
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.error(e.getMessage());
 		}
 		return new ArrayList<>();
 	}
