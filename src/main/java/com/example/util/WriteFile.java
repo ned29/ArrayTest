@@ -11,12 +11,13 @@ import java.util.List;
 public class WriteFile {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(WriteFile.class);
+	private static final String PATH_TO_SAVE = "src/main/resources/result.csv";
 
 	private WriteFile() {
 	}
 
 	public static void write(List<String> result) {
-		try (PrintWriter writer = new PrintWriter(new File("src/main/resources/result.csv"))) {
+		try (PrintWriter writer = new PrintWriter(new File(PATH_TO_SAVE))) {
 			StringBuilder sb = new StringBuilder();
 			result.forEach(res -> {
 				sb.append(res);

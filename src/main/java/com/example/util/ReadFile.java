@@ -20,7 +20,7 @@ public class ReadFile {
 	}
 
 	public static List<Integer> read(String csvFile) {
-		String line = "";
+		String line;
 		String[] numbers = new String[] {};
 		try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
 			while ((line = br.readLine()) != null) {
