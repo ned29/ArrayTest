@@ -7,6 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -49,6 +50,8 @@ class CalculateImplTest {
 
 	private static Stream<Arguments> arraysProvider() {
 		return Stream.of(arguments(new ArrayList<>(Arrays.asList(4, -8, 34)), new ArrayList<>(Arrays.asList(47, 1, -78)), 0),
-				arguments(new ArrayList<>(Arrays.asList(100, -56, 0)), new ArrayList<>(Arrays.asList(56, -67)), 33));
+				arguments(new ArrayList<>(Arrays.asList(100, -56, 0)), new ArrayList<>(Arrays.asList(56, -67)), 33),
+				arguments(new ArrayList<>(Arrays.asList(100, -56, 0)), Collections.EMPTY_LIST, 44),
+				arguments(Collections.EMPTY_LIST, Collections.EMPTY_LIST, 0));
 	}
 }
