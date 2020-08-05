@@ -1,6 +1,7 @@
 package com.example;
 
-import com.example.calculate.Calculation;
+import com.example.process.HandleData;
+import com.example.process.HandleDataImpl;
 import com.example.util.ReadFile;
 import com.example.util.WriteFile;
 
@@ -14,7 +15,7 @@ public class Application {
 	private static final String TEXT_FOR_SECOND_INPUT = "Please enter path to second csv file or just press enter to continue";
 
 	public static void main(String[] args) {
-		Calculation calculation = new Calculation();
+		HandleData handleDataImpl = new HandleDataImpl();
 		String path;
 		int number;
 		Scanner scanner = new Scanner(System.in);
@@ -25,12 +26,12 @@ public class Application {
 		System.out.println(TEXT_FOR_NUMBER);
 		number = Integer.parseInt(scanner.nextLine());
 		List<Integer> numbers = ReadFile.read(path);
-		List<String> result = calculation.processData(numbers, number);
+		List<String> result = handleDataImpl.processData(numbers, number);
 		System.out.println(TEXT_FOR_SECOND_INPUT);
 		String pathSecond = scanner.nextLine();
 		if (pathSecond != null && !pathSecond.isEmpty()) {
 			List<Integer> numbersSecond = ReadFile.read(pathSecond);
-			int sum = calculation.arraysSum(numbers, numbersSecond);
+			int sum = handleDataImpl.arraysSum(numbers, numbersSecond);
 			result.add(String.valueOf(sum));
 		}
 		WriteFile.write(result);

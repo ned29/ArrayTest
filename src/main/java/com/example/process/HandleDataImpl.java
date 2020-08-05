@@ -1,14 +1,18 @@
-package com.example.calculate;
+package com.example.process;
+
+import com.example.calculate.Calculate;
+import com.example.calculate.CalculateImpl;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Calculation {
+public class HandleDataImpl implements HandleData {
 
 	private final Calculate calculate = new CalculateImpl();
 
+	@Override
 	public List<String> processData(List<Integer> numbers, int staticNumber) {
 		if (numbers != null && !numbers.isEmpty()) {
 			List<String> result = new ArrayList<>();
@@ -24,6 +28,7 @@ public class Calculation {
 		return new ArrayList<>();
 	}
 
+	@Override
 	public int arraysSum(List<Integer> first, List<Integer> second) {
 		return calculate.arraysSum(first, second);
 	}
